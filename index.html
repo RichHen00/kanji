@@ -6,7 +6,7 @@
   <title>Japanese Lesson</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@800&family=LINE+Seed+JP:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Nicomoji&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@800&family=Noto+Sans+JP:wght@500;600&family=LINE+Seed+JP:wght@400;700&family=Nicomoji&display=swap" rel="stylesheet">
   <style>
     :root { --ink: #171717; --muted: #666; --page: #fff; --line: #d7d7d7; }
     body { background: #fff; font-family: "LINE Seed JP", "Noto Sans JP", sans-serif; margin: 0; }
@@ -28,11 +28,14 @@
     .font-link a { color: #d64747; }
     .lesson-content { padding: 34px 0 0; }
     .lesson-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; padding: 0 0 14px; border-bottom: 1px solid var(--line); }
-    .lesson-heading h2 { margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -.01em; }
-    .lesson-heading .ja { color: var(--muted); font-size: 17px; font-weight: 400; }
+    .lesson-heading h2 { margin: 0; font-size: 29px; font-weight: 800; letter-spacing: -.01em; font-family: "M PLUS 1p", sans-serif; }
+    .lesson-heading .ja { color: #d64747; font-size: 29px; font-weight: 600; font-family: "Noto Sans JP", sans-serif; }
     .lesson-lead { margin: 18px 0 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
     .lesson-lead .kanji-line { font-family: "M PLUS 1p", sans-serif; font-weight: 800; font-size: 29px; color: var(--ink); }
-    .lesson-lead .romaji { color: var(--muted); font-size: 13px; }
+    .lesson-lead .kanji-line .meaning { font-family: "LINE Seed JP", "Noto Sans JP", sans-serif; font-weight: 500; text-transform: uppercase; }
+    .lesson-lead .hiragana-char { font-family: "Noto Sans JP", sans-serif; font-weight: 500; font-size: 18px; color: var(--ink); }
+    .lesson-lead .romaji { color: var(--muted); font-size: 15px; font-weight: 400; }
+    .lesson-lead .lead-label { color: var(--muted); font-size: 15px; font-weight: 400; }
     @media (max-width: 480px) {
       main { width: 100%; margin: 20px auto 32px; padding: 0 16px; box-sizing: border-box; }
       .date { font-size: 15px; }
@@ -54,19 +57,19 @@
   <main>
     <article class="lesson">
       <header>
-        <p class="date">2026-09-20 · Playing “roku” and roll on your</p>
+        <p class="date">2026-09-20 · this.</p>
       </header>
       <section class="lesson-content" aria-label="Lesson content">
         <div class="lesson-heading">
-          <h2>六 <span class="ja" lang="ja">???</span></h2>
+          <h2>八 <span class="ja" lang="ja">???</span></h2>
         </div>
-        <p class="lesson-lead"><span class="kanji-line">六&emsp;Playing “roku” and roll on your</span> <br> Hiragana <span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 400; font-size: 18px;">?</span> <span class="romaji">go</span> <span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 400; font-size: 18px;">?</span> <span class="romaji"></span></p>
+        <p class="lesson-lead"><span class="kanji-line">八&emsp;<span class="meaning">this.</span></span> <br> <span class="lead-label">Hiragana</span> <span class="hiragana-char"><span class="hiragana-char">?</span></span> <span class="romaji">peeled</span> <span class="hiragana-char"><span class="hiragana-char">?</span></span> <span class="romaji"></span></p>
 
         <div class="characters">
           <div class="characters-heading"><h2>Stroke order</h2></div>
           <div class="kana-grid">
             <div class="kana">
-              <div class="kana-top"><strong>go</strong></div>
+              <div class="kana-top"><strong>peeled</strong></div>
               <div class="kana-body"><!--
 AnimCJK 2016-2026 Copyright FM-SH, https://github.com/parsimonhi/animCJK
 Derived from:
@@ -78,7 +81,7 @@ as published by Arphic Technology Co., Ltd.
 You should have received a copy of this license along with this file.
 If not, see https://ftp.gnu.org/non-gnu/chinese-fonts-truetype/LICENSE.
 -->
-<svg id="z20845" class="stroke-svg acjk" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+<svg id="z20843" class="stroke-svg acjk" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
 <style>
 <![CDATA[
 @keyframes zk {
@@ -99,26 +102,20 @@ svg.acjk path[clip-path] {
 svg.acjk path[id] {fill:#ccc;}
 ]]>
 </style>
-<path id="z20845d1" d="M462 198C482 213 502 233 524 255C535 265 548 270 562 270C570 269 579 263 582 251C591 208 564 167 531 156C487 141 433 130 426 136C421 139 419 146 422 158C424 165 438 178 462 198Z"/>
-<path id="z20845d2" d="M512 436C610 424 743 405 882 426C909 430 934 412 916 394C892 369 852 354 832 348C818 344 803 343 782 348C732 358 656 370 512 390C357 410 228 425 120 427C109 427 100 429 100 440C99 452 122 469 145 479C173 490 206 483 240 477C336 458 430 445 512 436Z"/>
-<path id="z20845d3" d="M342 556C339 624 291 694 198 762C176 777 163 786 148 799C138 808 140 811 153 812C281 785 329 705 424 621C433 612 435 601 426 589C401 556 376 539 356 539C347 538 342 544 342 556Z"/>
-<path id="z20845d4" d="M611 598C652 650 702 711 752 786C763 802 771 816 785 821C790 823 798 819 806 813C816 803 821 772 815 745C805 703 758 648 653 583C647 579 622 563 618 562C592 552 603 588 611 598Z"/>
+<path id="z20843d1" d="M317 435C318 519 277 600 155 710C143 720 104 750 79 774C69 783 72 788 85 787C101 785 122 778 146 763C220 715 283 650 325 595C353 556 380 521 406 491C414 481 415 470 404 459C372 427 346 414 329 416C320 416 316 423 317 435Z"/>
+<path id="z20843d2" d="M446 213C487 246 509 271 530 323C611 523 650 625 711 710C724 728 776 747 958 759C974 760 983 758 984 754C984 750 977 744 963 737C825 666 729 588 675 504C639 447 598 365 551 256C537 225 514 205 483 198C460 192 447 193 445 198C440 204 441 209 446 213Z"/>
 <defs>
-	<clipPath id="z20845c1"><use href="#z20845d1"/></clipPath>
-	<clipPath id="z20845c2"><use href="#z20845d2"/></clipPath>
-	<clipPath id="z20845c3"><use href="#z20845d3"/></clipPath>
-	<clipPath id="z20845c4"><use href="#z20845d4"/></clipPath>
+	<clipPath id="z20843c1"><use href="#z20843d1"/></clipPath>
+	<clipPath id="z20843c2"><use href="#z20843d2"/></clipPath>
 </defs>
-<path style="--d:1s;" pathLength="3333" clip-path="url(#z20845c1)" d="M428 144L528 201L568 264"/>
-<path style="--d:2s;" pathLength="3333" clip-path="url(#z20845c2)" d="M105 436L197 454L790 381L916 412"/>
-<path style="--d:3s;" pathLength="3333" clip-path="url(#z20845c3)" d="M351 546L380 609L267 736L150 805"/>
-<path style="--d:4s;" pathLength="3333" clip-path="url(#z20845c4)" d="M608 568L768 735L795 816"/>
+<path style="--d:1s;" pathLength="3333" clip-path="url(#z20843c1)" d="M325 426L361 483L315 562L207 690L84 780"/>
+<path style="--d:2s;" pathLength="3333" clip-path="url(#z20843c2)" d="M447 203L527 262L647 522L741 659L805 699L978 751"/>
 </svg></div>
             </div>
           </div>
         </div>
       </section>
-      <p class="font-link"><img src="assets/stamp.jpeg" alt=""><span class="date-stamp">20-09-2026 15:32</span><a href="https://googlefonts.github.io/japanese/#nicomoji" target="_blank" rel="noopener">G Fonts Japanese types</a></p>
+      <p class="font-link"><img src="assets/stamp.jpeg" alt=""><span class="date-stamp">20-09-2026 16:02</span><a href="https://googlefonts.github.io/japanese/#nicomoji" target="_blank" rel="noopener">G Fonts Japanese types</a></p>
     </article>
   </main>
   <script>
