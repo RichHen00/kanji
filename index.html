@@ -17,10 +17,10 @@
     .characters { padding: 34px 0 0; }
     .characters-heading { padding: 0 0 18px; border: 0; }
     .characters-heading h2 { font-size: 22px; font-weight: 500; margin: 0; }
-    .kana-grid { display: flex; flex-wrap: wrap; }
+    .kana-grid { display: flex; flex-wrap: wrap; gap: 0 16px; }
     .kana { border: 0; border-top: 1px solid var(--line); border-radius: 0; width: 10%; box-sizing: border-box; }
-    .kana-top { padding: 13px 0 8px; border: 0; color: var(--ink); text-align: center; font-size: 10px; }
-    .kana-body { min-height: 170px; padding: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .kana-top { padding: 12px 0 0; margin: 0; border: 0; color: var(--ink); text-align: center; font-size: 11.5px; line-height: 1; }
+    .kana-body { min-height: 170px; padding: 0; margin: 0; background: transparent; display: flex; align-items: flex-start; justify-content: center; cursor: pointer; }
     .kana-body svg { width: 100%; height: auto; }
     .font-link { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 38px 0 0; font-size: 12px; }
     .font-link img { height: 20px; width: auto; }
@@ -36,6 +36,19 @@
     .lesson-lead .hiragana-char { font-family: "Noto Sans JP", sans-serif; font-weight: 500; font-size: 18px; color: var(--ink); }
     .lesson-lead .romaji { color: var(--muted); font-size: 15px; font-weight: 400; }
     .lesson-lead .lead-label { color: var(--muted); font-size: 15px; font-weight: 400; }
+    .clickable { cursor: pointer; }
+    .clickable:hover { opacity: 0.7; }
+    .stroke-svg path {
+      animation: drawStroke 0.8s ease forwards;
+      animation-delay: var(--d, 0s);
+    }
+    .stroke-svg.replay path {
+      animation: none;
+      stroke-dashoffset: var(--len);
+    }
+    @keyframes drawStroke {
+      to { stroke-dashoffset: 0; }
+    }
     @media (max-width: 480px) {
       main { width: 100%; margin: 20px auto 32px; padding: 0 16px; box-sizing: border-box; }
       .date { font-size: 15px; }
@@ -57,74 +70,92 @@
   <main>
     <article class="lesson">
       <header>
-        <p class="date">2026-09-20 · Playing “roku” and roll on your</p>
+        <p class="date">2026-09-20 · Morning (greeting)</p>
       </header>
       <section class="lesson-content" aria-label="Lesson content">
         <div class="lesson-heading">
-          <h2>六 <span class="ja" lang="ja">???</span></h2>
+          <h2><span class="clickable" onclick="playSound('ohayou')">おはよう</span> <span class="ja clickable" lang="ja" onclick="playSound('ohayou')">おはよう</span> <span class="meaning" style="font-size:18px;font-weight:500;">Morning (greeting)</span></h2>
         </div>
-        <p class="lesson-lead"><span class="kanji-line">六&emsp;<span class="meaning">Playing “roku” and roll on your</span></span> <br> <span class="lead-label">Hiragana</span> <span class="hiragana-char"><span class="hiragana-char">?</span></span> <span class="romaji">go</span> <span class="hiragana-char"><span class="hiragana-char">?</span></span> <span class="romaji"></span></p>
+        <p class="lesson-lead"><span class="lead-label">Hiragana</span> <span class="hiragana-char"><span class="hiragana-char">お</span></span> <span class="romaji">o</span> <span class="hiragana-char"><span class="hiragana-char">は</span></span> <span class="romaji">ha</span></p>
+
+        <p class="lesson-lead" style="margin-top:24px;"><strong>Usage:</strong> The greeting **おはよう** is used in the morning.</p>
+        <p class="lesson-lead"><strong>Example:</strong> Used in the morning, e.g. **おはよう、元気？** (ohayou, genki?, “Morning, are you well?”).</p>
 
         <div class="characters">
-          <div class="characters-heading"><h2>Stroke order</h2></div>
+          <div class="characters-heading"><h2><span class="clickable" onclick="playSound('ohayou')">おはよう</span> <span class="ja clickable" lang="ja" onclick="playSound('ohayou')">おはよう</span> <span class="meaning" style="font-size:18px;font-weight:500;">Morning (greeting)</span></h2></div>
           <div class="kana-grid">
-            <div class="kana">
-              <div class="kana-top"><strong>go</strong></div>
-              <div class="kana-body"><!--
-AnimCJK 2016-2026 Copyright FM-SH, https://github.com/parsimonhi/animCJK
-Derived from:
-    MakeMeAHanzi project - https://github.com/skishore/makemeahanzi
-    Arphic PL KaitiM GB font
-    Arphic PL KaitiM Big5 font
-You can redistribute and/or modify this file under the terms of the Arphic Public License
-as published by Arphic Technology Co., Ltd.
-You should have received a copy of this license along with this file.
-If not, see https://ftp.gnu.org/non-gnu/chinese-fonts-truetype/LICENSE.
--->
-<svg id="z20845" class="stroke-svg acjk" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-<style>
-<![CDATA[
-@keyframes zk {
-	to {
-		stroke-dashoffset:0;
-	}
-}
-svg.acjk path[clip-path] {
-	--t:0.8s;
-	animation:zk var(--t) linear forwards var(--d);
-	stroke-dasharray:3337;
-	stroke-dashoffset:3339;
-	stroke-width:128;
-	stroke-linecap:round;
-	fill:none;
-	stroke:#000;
-}
-svg.acjk path[id] {fill:#ccc;}
-]]>
-</style>
-<path id="z20845d1" d="M462 198C482 213 502 233 524 255C535 265 548 270 562 270C570 269 579 263 582 251C591 208 564 167 531 156C487 141 433 130 426 136C421 139 419 146 422 158C424 165 438 178 462 198Z"/>
-<path id="z20845d2" d="M512 436C610 424 743 405 882 426C909 430 934 412 916 394C892 369 852 354 832 348C818 344 803 343 782 348C732 358 656 370 512 390C357 410 228 425 120 427C109 427 100 429 100 440C99 452 122 469 145 479C173 490 206 483 240 477C336 458 430 445 512 436Z"/>
-<path id="z20845d3" d="M342 556C339 624 291 694 198 762C176 777 163 786 148 799C138 808 140 811 153 812C281 785 329 705 424 621C433 612 435 601 426 589C401 556 376 539 356 539C347 538 342 544 342 556Z"/>
-<path id="z20845d4" d="M611 598C652 650 702 711 752 786C763 802 771 816 785 821C790 823 798 819 806 813C816 803 821 772 815 745C805 703 758 648 653 583C647 579 622 563 618 562C592 552 603 588 611 598Z"/>
-<defs>
-	<clipPath id="z20845c1"><use href="#z20845d1"/></clipPath>
-	<clipPath id="z20845c2"><use href="#z20845d2"/></clipPath>
-	<clipPath id="z20845c3"><use href="#z20845d3"/></clipPath>
-	<clipPath id="z20845c4"><use href="#z20845d4"/></clipPath>
-</defs>
-<path style="--d:1s;" pathLength="3333" clip-path="url(#z20845c1)" d="M428 144L528 201L568 264"/>
-<path style="--d:2s;" pathLength="3333" clip-path="url(#z20845c2)" d="M105 436L197 454L790 381L916 412"/>
-<path style="--d:3s;" pathLength="3333" clip-path="url(#z20845c3)" d="M351 546L380 609L267 736L150 805"/>
-<path style="--d:4s;" pathLength="3333" clip-path="url(#z20845c4)" d="M608 568L768 735L795 816"/>
-</svg></div>
-            </div>
+        <div class="kana">
+          <div class="kana-top"><strong>o</strong></div>
+          <div class="kana-body">
+            <svg class="stroke-svg" viewBox="0 0 109 109" xmlns="http://www.w3.org/2000/svg">
+              <g style="fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;">
+                <path id="kvg:0304a-s1"style="--d:0.0s;" d="M22.88,35.12c1.38,1,3.62,2.38,6,2.12c2.38-0.26,19.62-5.12,21.12-5.74c1.5-0.62,4-1.25,5.88-2"/><path id="kvg:0304a-s2"style="--d:0.8s;" d="M41.5,16.12c2.25,1,3.59,4.39,3.12,7.38c-2.5,16.12-3.37,45.53-2.25,58.38c0.75,8.62-0.64,10.45-7.12,7.12c-5.13-2.62-13.75-8-13.75-12.38c0-7.5,24.38-23.62,44.75-23.62c17.25,0,25,8.25,25,17.25c0,8.25-9.38,18.88-26.75,21"/><path id="kvg:0304a-s3"style="--d:1.6s;" d="M73,22.12c5.38,2.62,8.88,5.88,10.62,8.25c2.27,3.08,0.38,4.5-1.12,5"/>
+              </g>
+            </svg>
           </div>
         </div>
+        <div class="kana">
+          <div class="kana-top"><strong>ha</strong></div>
+          <div class="kana-body">
+            <svg class="stroke-svg" viewBox="0 0 109 109" xmlns="http://www.w3.org/2000/svg">
+              <g style="fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;">
+                <path id="kvg:0306f-s1"style="--d:0.0s;" d="M24.51,18c1.25,1.5,2.15,4,1.62,6.62c-3.5,17.62-6.98,36.4-4,54.88c2.5,15.5,1.12,2,5.62-6.25"/><path id="kvg:0306f-s2"style="--d:0.8s;" d="M49.64,37.89c2.41,1.57,4.85,2.16,7.8,1.71c9.36-1.43,17.46-2.94,23.4-4.57c3.12-0.86,5.96-1.29,7.8-1.29"/><path id="kvg:0306f-s3"style="--d:1.6s;" d="M69.77,16.5c2.25,2.12,2.88,4.12,2.88,6.5c0,2.38,1.5,38.62,1.5,48c0,22.5-30.62,19.62-30.62,10.5c0-9.75,23.88-5.62,29.5-2.88c5.62,2.74,11.98,8.26,13.36,9.38"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="kana">
+          <div class="kana-top"><strong>yo</strong></div>
+          <div class="kana-body">
+            <svg class="stroke-svg" viewBox="0 0 109 109" xmlns="http://www.w3.org/2000/svg">
+              <g style="fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;">
+                <path id="kvg:03088-s1"style="--d:0.0s;" d="M58.24,35.38c7.5-1.28,13.74-2.63,18.5-4.1c2.5-0.77,4.77-1.15,6.25-1.15"/><path id="kvg:03088-s2"style="--d:0.8s;" d="M54.62,13.88c2.25,2.12,2.98,4.13,2.88,6.5c-0.75,17-0.12,34.88,1.39,53.5c1.88,23.07-34.89,20.88-34.89,11.5c0-12,26.25-8,35.98-4.12c8.1,3.23,11.52,4.88,18.52,10.38"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="kana">
+          <div class="kana-top"><strong>u</strong></div>
+          <div class="kana-body">
+            <svg class="stroke-svg" viewBox="0 0 109 109" xmlns="http://www.w3.org/2000/svg">
+              <g style="fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;">
+                <path id="kvg:03046-s1"style="--d:0.0s;" d="M42,15.5c5.62,2.12,9.62,3,12.88,3c8.27,0,8,1.12-0.38,5.5"/><path id="kvg:03046-s2"style="--d:0.8s;" d="M33,42.38c2.12,1.12,4.12,2.88,8.5,1.38c4.38-1.5,12.75-7.12,18.5-7c5.75,0.12,10.25,5,10.25,18c0,15.49-8.25,30.24-24.37,41.24"/>
+              </g>
+            </svg>
+          </div>
+        </div></div>
+        </div>
       </section>
-      <p class="font-link"><img src="assets/stamp.jpeg" alt=""><span class="date-stamp">20-09-2026 16:42</span><a href="https://googlefonts.github.io/japanese/#nicomoji" target="_blank" rel="noopener">G Fonts Japanese types</a></p>
+      <p class="font-link"><img src="assets/stamp.jpeg" alt=""><span class="date-stamp" id="timestamp">20-09-2026 19:11</span><a href="https://googlefonts.github.io/japanese/#nicomoji" target="_blank" rel="noopener">G Fonts Japanese types</a></p>
     </article>
-  </main>
+  <audio id="sound-ohayou" preload="none"><source src="https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=おはよう" type="audio/mpeg"></audio>
+</main>
+  <audio id="sound-{{SOUND_ID}}" preload="none">
+    <source src="{{AUDIO_URL}}" type="audio/mpeg">
+  </audio>
   <script>
+    function playSound(id) {
+      var audio = document.getElementById('sound-' + id);
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play();
+      }
+    }
+    function initStrokeLengths() {
+      document.querySelectorAll('.stroke-svg').forEach(function(svg) {
+        svg.querySelectorAll('path').forEach(function(p) {
+          var len = p.getTotalLength();
+          p.style.setProperty('--len', len);
+          p.style.strokeDasharray = len;
+          p.style.strokeDashoffset = len;
+        });
+      });
+    }
+    function replayStroke(svg) {
+      var clone = svg.cloneNode(true);
+      svg.parentNode.replaceChild(clone, svg);
+      initStrokeLengths();
+    }
     (function () {
       var date = document.querySelector('.date');
       var english = date && date.textContent.split(' \u00b7 ')[1];
@@ -133,14 +164,19 @@ svg.acjk path[id] {fill:#ccc;}
         var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
         document.title = Number(match[3]) + ' ' + months[Number(match[2]) - 1] + ' ' + match[1].slice(2) + ' - ' + english.trim();
       }
+      initStrokeLengths();
+      var now = new Date();
+      var dd = String(now.getDate()).padStart(2, '0');
+      var mm = String(now.getMonth() + 1).padStart(2, '0');
+      var yyyy = now.getFullYear();
+      var hh = String(now.getHours()).padStart(2, '0');
+      var min = String(now.getMinutes()).padStart(2, '0');
+      document.getElementById('timestamp').textContent = dd + '-' + mm + '-' + yyyy + ' ' + hh + ':' + min;
     }());
     document.querySelectorAll('.kana-body').forEach(function (body) {
       body.addEventListener('click', function () {
         var svg = body.querySelector('.stroke-svg');
-        if (svg) {
-          var clone = svg.cloneNode(true);
-          svg.parentNode.replaceChild(clone, svg);
-        }
+        if (svg) replayStroke(svg);
       });
     });
   </script>
