@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japanese Lesson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Nicomoji&display=swap" rel="stylesheet">
+  <style>
+    
+    :root {
+      --ink: #171717; --muted: #666; --page: #fff; --line: #d7d7d7;
+    }
+    body { background: #fff; font-family: "LINE Seed JP", "Noto Sans JP", sans-serif; margin: 0; }
+    main { width: min(920px, calc(100% - 40px)); margin: 34px auto 60px; }
+    .lesson { border: 0; background: #fff; }
+    header { padding: 0 0 34px; border: 0; }
+    .date { margin: 0; color: #d64747; font-size: 14px; letter-spacing: .08em; text-transform: none; }
+    .details { grid-template-columns: 1.5fr 1fr 1fr; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; }
+    .detail { padding: 25px 0; }
+    .detail + .detail { border-left: 0; padding-left: 34px; }
+    .label { margin-bottom: 12px; font-size: 11px; letter-spacing: .16em; color: var(--muted); text-transform: uppercase; }
+    .value { font-size: 19px; }
+    .detail:first-child .value { font-size: 34px; line-height: 1.2; }
+    .script-note {
+      display: inline-block; margin: 0 0 0 8px; padding: 1px 6px;
+      background: #ffeb8a; border-radius: 3px; font-size: 9px;
+      letter-spacing: .06em; vertical-align: middle; line-height: 1.6; color: var(--ink);
+    }
+    .characters { padding: 34px 0 0; }
+    .characters-heading { padding: 0 0 18px; border: 0; }
+    .characters-heading h2 { font-size: 22px; font-weight: 500; margin: 0; }
+    .kana-grid { display: flex; flex-wrap: wrap; }
+    .kana { border: 0; border-top: 1px solid var(--line); border-radius: 0; width: 10%; box-sizing: border-box; }
+    .kana-top { padding: 13px 0 8px; border: 0; color: var(--ink); text-align: center; font-size: 10px; }
+    .kana-body { min-height: 170px; padding: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .kana-body svg { width: 100%; height: auto; }
+    .font-link { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 38px 0 0; font-size: 12px; }
+    .font-link img { height: 20px; width: auto; }
+    .font-link .date-stamp { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .font-link a { color: #d64747; }
+    .lesson-content { padding: 34px 0 0; }
+    .lesson-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; padding: 0 0 14px; border-bottom: 1px solid var(--line); }
+    .lesson-heading h2 { margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -.01em; }
+    .lesson-heading .ja { color: var(--muted); font-size: 17px; font-weight: 400; }
+    .lesson-lead { margin: 18px 0 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
+    .lesson-lead strong { color: var(--ink); font-weight: 700; }
+    .phrase-list { list-style: none; margin: 34px 0 0; padding: 0; }
+    .phrase { display: grid; grid-template-columns: 1.5fr 1fr 1fr; }
+    .phrase + .phrase { border-top: 1px solid var(--line); }
+    .phrase .detail { padding: 25px 0; }
+    .phrase .detail + .detail { border-left: 0; padding-left: 34px; }
+    .phrase-jp { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: "LINE Seed JP", "Noto Sans JP", sans-serif; font-weight: 700; }
+    .phrase-char { width: 60px; display: flex; flex-direction: column; align-items: center; }
+    .phrase-jp .kana-body { min-height: 0; padding: 4px; background: transparent; }
+    .lesson-block { margin-top: 42px; }
+    .lesson-block + .lesson-block { border-top: 1px solid var(--line); padding-top: 34px; }
+    .lesson-block-head { margin: 0 0 14px; font-size: 17px; font-weight: 700; letter-spacing: .02em; }
+    .lesson-block-head .ja { margin-left: 10px; color: var(--muted); font-size: 14px; font-weight: 400; }
+    .lesson-goals { margin: 0; padding: 0; list-style: none; }
+    .lesson-goals li { position: relative; margin: 0 0 10px; padding-left: 20px; color: var(--muted); font-size: 15px; line-height: 1.7; }
+    .lesson-goals li::before { content: "›"; position: absolute; left: 0; color: #d64747; }
+    .lesson-goals em { color: var(--ink); font-style: italic; }
+    .word-list { margin: 18px 0 0; list-style: none; padding: 0; }
+    .word { display: grid; grid-template-columns: 1.4fr .8fr 1fr 1fr; }
+    .word + .word { border-top: 1px solid var(--line); }
+    .word .detail { padding: 22px 0; }
+    .word .detail + .detail { border-left: 0; padding-left: 26px; }
+    .word .detail:nth-of-type(2) .value { font-size: 24px; line-height: 1.25; }
+    .word-jp { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: "LINE Seed JP", "Noto Sans JP", sans-serif; font-weight: 700; }
+    .word-jp .kana-body { min-height: 0; padding: 4px; background: transparent; }
+    .word-jp .phrase-char { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .word-jp .phrase-sound { font-size: 11px; font-weight: 600; letter-spacing: .04em; color: var(--muted); }
+    .lesson-note { margin: 18px 0 0; padding: 12px 16px; background: #faf9f5; border-left: 2px solid var(--line); color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .lesson-note strong { color: var(--ink); }
+    .stroke-svg { display: block; width: min(100%, 172px); }
+    .stroke-ghost path, .stroke-anim path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .stroke-ghost path { stroke: #e9e9e9; stroke-width: 3; }
+    .stroke-anim path { stroke: var(--ink); stroke-width: 3.5; stroke-dasharray: 1; stroke-dashoffset: 1; }
+    .stroke-svg.playing .stroke-anim path { animation: strokeDraw .5s ease forwards; animation-delay: calc(var(--i) * .3s); }
+    @keyframes strokeDraw { to { stroke-dashoffset: 0; } }
+    @media (max-width: 600px) {
+      .phrase, .word { grid-template-columns: 1fr; }
+      .word .detail, .word .detail + .detail { padding: 16px 0; }
+      .word .detail + .detail { padding-left: 0; }
+      .lesson-block-head { font-size: 16px; }
+    }
+    @media (max-width: 480px) {
+      main { width: 100%; margin: 20px auto 32px; padding: 0 16px; box-sizing: border-box; }
+      .date { font-size: 15px; }
+      .lesson-heading { flex-direction: column; gap: 4px; }
+      .lesson-heading h2 { font-size: 28px; text-align: center; width: 100%; }
+      .lesson-heading .ja { font-size: 18px; }
+      .lesson-lead { font-size: 16px; text-align: center; }
+      .characters-heading { text-align: center; }
+      .characters-heading h2 { font-size: 24px; }
+      .kana-grid { flex-direction: column; align-items: center; }
+      .kana { width: 70vw; border-top: none; }
+      .kana-top { font-size: 13px; padding: 16px 0 12px; }
+      .kana-body { min-height: 0; padding: 0; }
+      .kana-body svg { width: 70vw; height: auto; }
+      .lesson-block-head { font-size: 16px; }
+    }
+  
+  </style>
+</head>
+<body>
+  <main>
+    <article class="lesson">
+      <header>
+        <p class="date">2026-09-20 · An asterisk denotes vocabulary with kanji that have not yet been introduced</p>
+      </header>
+      <section class="lesson-content" aria-label="Lesson content">
+        <div class="lesson-heading">
+          <h2>一 <span class="ja" lang="ja">???</span></h2>
+        </div >
+        <p class="lesson-lead"><strong><span class="script-note">一</span> An asterisk denotes vocabulary with kanji that have not yet been introduced.</strong> <br> Hiragana ??? <span class="romaji">asterisk</span></p>
+        <div class="characters">
+          <div class="characters-heading"><h2>Stroke order</h2></div >
+          <div class="kana-grid">
+            <div class="kana">
+              <div class="kana-top"><strong>asterisk</strong></div >
+              <div class="kana-body"><!--
+AnimCJK 2016-2026 Copyright FM-SH, https://github.com/parsimonhi/animCJK
+Derived from:
+    MakeMeAHanzi project - https://github.com/skishore/makemeahanzi
+    Arphic PL KaitiM GB font
+    Arphic PL KaitiM Big5 font
+You can redistribute and/or modify this file under the terms of the Arphic Public License
+as published by Arphic Technology Co., Ltd.
+You should have received a copy of this license along with this file.
+If not, see https://ftp.gnu.org/non-gnu/chinese-fonts-truetype/LICENSE.
+-->
+<svg id="z19968" class="stroke-svg acjk" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+<style>
+<![CDATA[
+@keyframes zk {
+	to {
+		stroke-dashoffset:0;
+	}
+}
+svg.acjk path[clip-path] {
+	--t:0.8s;
+	animation:zk var(--t) linear forwards var(--d);
+	stroke-dasharray:3337;
+	stroke-dashoffset:3339;
+	stroke-width:128;
+	stroke-linecap:round;
+	fill:none;
+	stroke:#000;
+}
+svg.acjk path[id] {fill:#ccc;}
+]]>
+</style>
+<path id="z19968d1" d="M512 532C608 522 744 511 882 532C910 536 934 515 916 496C892 472 853 448 832 442C819 438 803 437 782 442C732 452 674 462 512 480C354 496 207 504 120 507C109 507 99 514 100 524C100 542 123 560 145 571C179 588 206 577 240 571C336 552 430 539 512 532Z"/>
+<defs>
+	<clipPath id="z19968c1"><use href="#z19968d1"/></clipPath>
+</defs>
+<path style="--d:1s;" pathLength="3333" clip-path="url(#z19968c1)" d="M106 521L202 541L795 481L918 507"/>
+</svg></div>
+            </div >
+          </div >
+        </div >
+      </section>
+      <p class="font-link"><img src="assets/stamp.jpeg" alt=""><span class="date-stamp">20-09-2026 14:42</span><a href="https://googlefonts.github.io/japanese/#nicomoji" target="_blank" rel="noopener">G Fonts Japanese types</a></p>
+    </article>
+  </main>
+  <script>
+    (function () {
+      var date = document.querySelector('.date');
+      var english = date && date.textContent.split(' · ')[1];
+      var match = date && date.textContent.match(/^(\d{4})-(\d{2})-(\d{2})/);
+      if (match && english) {
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        document.title = Number(match[3]) + ' ' + months[Number(match[2]) - 1] + ' ' + match[1].slice(2) + ' - ' + english.trim();
+      }
+    })();
+    document.querySelectorAll('.kana-body').forEach(function (body) {
+      body.addEventListener('click', function () {
+        var svg = body.querySelector('.stroke-svg');
+        if (svg) {
+          var clone = svg.cloneNode(true);
+          svg.parentNode.replaceChild(clone, svg);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
